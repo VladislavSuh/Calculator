@@ -10,13 +10,15 @@ import Foundation
 
 protocol InteractorInput: AnyObject {
     
-    // Properties
+    // MARK: - Instance Properties
+    
     var firstNumber: Double { get set}
     var secondNumber: Double { get set}
     var signTag: Int { get set }
     var result: Double { get set }
     var signPressed: Bool { get set }
     
-    // Methods
+    // MARK: - Instance Methods
+    
     func setNewResult()
 }

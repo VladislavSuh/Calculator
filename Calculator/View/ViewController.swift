@@ -10,25 +10,29 @@ import UIKit
 
 class ViewController: UIViewController, ViewInput {
     
-    // MARK: Instance Properties
+    // MARK: - Instance Properties
     
-    var viewOutput: ViewOutput!
     @IBOutlet weak var resultLabel: UILabel!
+    var viewOutput: ViewOutput!
     
-    // MARK: Instanse Methods
+    // MARK: - Instanse Methods
     
     @IBAction func digitPressed(_ sender: UIButton) {
-        viewOutput.digitPressed(digitTag: sender.tag, resultLabel: resultLabel.text!)
+        guard let resultLabel = resultLabel.text else { return }
+        viewOutput.digitPressed(digitTag: sender.tag, result: resultLabel)
     }
     
     @IBAction func signPressed(_ sender: UIButton) {
-        viewOutput.signPressed(digitTag: sender.tag, resultLabel: resultLabel.text!)
+        guard let resultLabel = resultLabel.text else { return }
+        viewOutput.signPressed(digitTag: sender.tag, result: resultLabel)
     }
     
-    // MARK: ViewInput
-    // Methods
+    // MARK: - ViewInput
+    
     func setDigits(digit: String) {
-        resultLabel.text! = digit 
+        if resultLabel.text != nil {
+            resultLabel.text = digit
+        }
     }
 }
 
