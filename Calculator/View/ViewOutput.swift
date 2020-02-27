@@ -10,10 +10,11 @@ import Foundation
 
 protocol ViewOutput: AnyObject {
     
-    // Methods
-    func digitPressed(digitTag: Int, resultLabel: String)
+    // MARK: - Instance Methods
     
-    func signPressed(digitTag: Int, resultLabel: String)
+    func digitPressed(digitTag: Int, result: String)
+    
+    func signPressed(digitTag: Int, result: String)
 }
 
 

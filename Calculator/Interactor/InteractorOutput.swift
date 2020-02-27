@@ -10,6 +10,9 @@ import Foundation
 
 protocol InteractorOutput: AnyObject {
     
-    // Methods
-    func didFinishSetNewResult(digit: String) 
+    // MARK: - Instance Methods
+    
+    func didFinishSetNewResult(digit: String)
+    
+    func alertError()
 }

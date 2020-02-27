@@ -10,20 +10,25 @@ import Foundation
 
 class Interactor: InteractorInput {
     
-    // MARK: Instance Properties 
+    
+    // MARK: - Instance Properties
     
     weak var interactorOutput: InteractorOutput!
     
-    // MARK: InteractorInput
-    // Properties
-    var firstNumber: Double = 0
-    var secondNumber: Double = 0
-    var result: Double = 0
+    // MARK: - InteractorInput
+    
+    var firstNumber: Double = 0.0
+    var secondNumber: Double = 0.0
+    var result: Double = 0.0
     var signPressed = false
     var signTag: Int = 0
-    
-    // Methods
+  
     func setNewResult() {
+        
+        if (signTag == 15) && (secondNumber == 0.0) {
+            interactorOutput.alertError()
+        }
+        
         switch signTag {
         case 12: result = firstNumber + secondNumber
         case 13: result = firstNumber - secondNumber
@@ -32,6 +37,7 @@ class Interactor: InteractorInput {
         case 16: result = firstNumber / 100
         default: result = secondNumber
         }
+        
         interactorOutput.didFinishSetNewResult(digit: String(result))
     }
 }

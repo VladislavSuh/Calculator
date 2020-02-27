@@ -15,25 +15,27 @@ class ModuleAssembly: NSObject {
     
     @IBOutlet weak var viewController: ViewController!
     
-    // MARK: - ViewController 
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        configureModule()
-    }
-    
     // MARK: - Instance Methods
     
     func configureModule() {
-        guard let view = viewController as? ViewController else { return }
+        guard let view = viewController else { return }
         let router = Router()
         let interactor = Interactor()
         let presenter = Presenter()
         
-        presenter.interactor = interactor
+        presenter.interactor = interactor  
         presenter.router = router
-        presenter.view = viewController
-        view.viewOutput = presenter
+        presenter.view = view
         interactor.interactorOutput = presenter
+        router.view = view
+        
+        view.viewOutput = presenter
+    }
+    
+    // MARK: - Initializers
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configureModule()
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 
 protocol ViewInput: AnyObject {
  
-    // Methods
+    // MARK: - Instance Methods
+    
     func setDigits(digit: String)
 }

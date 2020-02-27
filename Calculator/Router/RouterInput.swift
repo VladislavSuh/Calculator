@@ -10,4 +10,7 @@ import Foundation
 
 protocol RouterInput: AnyObject {
     
+    // MARK: - Instance Methods
+    
+    func showAlert()
 }
